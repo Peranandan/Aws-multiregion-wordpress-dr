@@ -109,11 +109,17 @@ CloudWatch is configured to monitor the health and performance of the Production
 ## 📸 Screenshots
 
 [Prod-Ec2.png](/Screenshots/Prod-Ec2.png)
+
 [DR-Ec2.png](/Screenshots/DR-Ec2.png)
+
 [Prod-Alb.png](/Screenshots/Prod-Alb.png)
+
 [DR-Alb.png](/Screenshots/Prod-Alb.png)
+
 [Route53-Failover-Records.png](/Screenshots/Route53-Failover-Records.png)
+
 [Route53-Healthcheck-Unhealthy.png](/Screenshots/Route53-Healthcheck-Unhealthy.png)
+
 - Prod-Rds
 - DR-Rds
 - Cloudwatch-alarm-dashboard
