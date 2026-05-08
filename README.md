@@ -58,7 +58,7 @@ This architecture ensures that if the primary region fails, traffic is automatic
 A shell script is used to automate WordPress installation and configuration on EC2 instances in both Production and DR regions.
 
 ### 📁 Script Location:
-
+'/scripts/Wordpress-setup.sh'
 
 ### 🎯 Purpose:
 - Automates WordPress deployment on EC2
