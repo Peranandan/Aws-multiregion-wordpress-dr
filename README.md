@@ -24,6 +24,12 @@ Designed and deployed a multi-region WordPress infrastructure on AWS with produc
 - CloudWatch monitoring and SNS alerts
 - Separate Production and DR databases
 
+## Architecture
+- Production EC2 + ALB + RDS
+- DR EC2 + DR ALB + DR RDS
+- Route 53 Failover Routing
+- ACM SSL/TLS Encryption
+
 ## Monitoring
 Configured CloudWatch alarms for:
 - EC2 CPU Utilization
@@ -32,12 +38,6 @@ Configured CloudWatch alarms for:
 - Unhealthy Host Count
 
 Integrated Amazon SNS for real-time alert notifications.
-
-## Architecture
-- Production EC2 + ALB + RDS
-- DR EC2 + DR ALB + DR RDS
-- Route 53 Failover Routing
-- ACM SSL/TLS Encryption
 
 ## Outcome
 Built a highly available and disaster recovery-enabled AWS architecture with monitoring, failover routing, and secure application access.
