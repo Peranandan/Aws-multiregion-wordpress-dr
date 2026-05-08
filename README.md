@@ -109,7 +109,8 @@ CloudWatch is configured to monitor the health and performance of the Production
 ## 📸 Screenshots
 
 
-[Prod-Ec2](/Screenshots/Prod-Ec2.png)
+[Prod-Ec2.png](/Screenshots/Prod-Ec2.png)
+
 - DR-Ec2
 - Route53-Failover-Records
 - Route53-Healthcheck-Unhealthy
