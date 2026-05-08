@@ -1,5 +1,7 @@
 # Highly Available Multi-Region WordPress Infrastructure on AWS
 
+![Architecture Diagram](Architecture.png)
+
 ## Overview
 Designed and deployed a multi-region WordPress infrastructure on AWS with production and disaster recovery (DR) environments to ensure high availability and fault tolerance.
 
