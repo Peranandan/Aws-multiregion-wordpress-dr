@@ -2,42 +2,141 @@
 
 ![Architecture Diagram](Architecture.png)
 
-## Overview
-Designed and deployed a multi-region WordPress infrastructure on AWS with production and disaster recovery (DR) environments to ensure high availability and fault tolerance.
+## 📌 Overview
+Designed and deployed a multi-region WordPress infrastructure on AWS with Production and Disaster Recovery (DR) environments to ensure high availability, fault tolerance, and automatic failover.
 
-## AWS Services Used
-- EC2
+This architecture ensures that if the primary region fails, traffic is automatically redirected to the DR region using Route 53 health checks and failover routing.
+
+---
+
+## ☁️ AWS Services Used
+- Amazon EC2
 - Application Load Balancer (ALB)
 - Amazon RDS
-- Route 53
+- Amazon Route 53
 - AWS Certificate Manager (ACM)
-- CloudWatch
+- Amazon CloudWatch
 - Amazon SNS
 - IAM
 - VPC
 
-## Features
-- Multi-region Production and DR setup
-- Route 53 DNS failover routing
-- HTTPS using ACM
-- ALB for traffic distribution
-- CloudWatch monitoring and SNS alerts
-- Separate Production and DR databases
+---
 
-## Architecture
-- Production EC2 + ALB + RDS
-- DR EC2 + DR ALB + DR RDS
-- Route 53 Failover Routing
-- ACM SSL/TLS Encryption
+## 🏗️ Architecture Design
+- **Production Region**
+  - EC2 instances hosting WordPress
+  - Application Load Balancer (ALB)
+  - Primary RDS database
 
-## Monitoring
-Configured CloudWatch alarms for:
+- **DR Region**
+  - EC2 instances (standby WordPress setup)
+  - Application Load Balancer (ALB)
+  - DR RDS database (standby)
+
+- **Global Setup**
+  - Route 53 Failover Routing Policy
+  - ACM for HTTPS/SSL encryption
+
+---
+
+## 🔁 Disaster Recovery Flow
+1. User traffic is routed through Route 53 DNS
+2. Requests are sent to the Production ALB
+3. CloudWatch continuously monitors production health
+4. If a failure is detected:
+   - ALB/EC2 health check fails
+   - Route 53 marks primary region as unhealthy
+5. Traffic is automatically redirected to the DR region
+6. DR environment takes over application delivery
+
+---
+
+## ⚙️ Automation Script
+
+### WordPress Setup Script
+
+A shell script is used to automate WordPress installation and configuration on EC2 instances in both Production and DR regions.
+
+### 📁 Script Location:
+
+
+### 🎯 Purpose:
+- Automates WordPress deployment on EC2
+- Ensures identical configuration across regions
+- Reduces manual setup errors
+- Speeds up infrastructure provisioning
+
+### 🧾 Script Functions:
+- Installs Apache web server
+- Installs PHP dependencies
+- Downloads and configures WordPress
+- Sets correct file permissions
+- Starts and enables required services
+
+---
+
+## 📊 CloudWatch Monitoring
+
+CloudWatch is configured to monitor the health and performance of the Production environment.
+
+### 📌 Monitored Metrics:
 - EC2 CPU Utilization
-- RDS metrics
-- Target Response Time
-- Unhealthy Host Count
+- RDS CPU Utilization
+- Application Load Balancer UnHealthyHostCount
+- Application Load Balancer TargetResponseTime
 
-Integrated Amazon SNS for real-time alert notifications.
+### 🚨 Alerting:
+- Amazon SNS is integrated for real-time notifications
+- Alerts are triggered when production health degrades
 
-## Outcome
-Built a highly available and disaster recovery-enabled AWS architecture with monitoring, failover routing, and secure application access.
+---
+
+## 🔔 Notification System (SNS)
+- Sends email/SMS alerts when CloudWatch alarms are triggered
+- Notifies when production region becomes unhealthy
+- Helps in immediate response to failures
+
+---
+
+## 🌐 Route 53 Failover Configuration
+- Primary record points to Production ALB
+- Secondary record points to DR ALB
+- Health checks continuously monitor Production endpoint
+- Automatic DNS failover enables traffic switching
+
+---
+
+## 📸 Screenshots
+
+
+- Prod-Ec2
+- DR-Ec2
+- Route53-Failover-Records
+- Route53-Healthcheck-Unhealthy
+- Prod-Alb
+- DR-Alb
+- Prod-Rds
+- DR-Rds
+- Cloudwatch-alarm-dashboard
+- Cloudwatch-metric
+- Alarm-triggered
+- SNS-alert
+  
+---
+
+## 🚀 Outcome
+Successfully built a highly available and disaster recovery-enabled AWS architecture with:
+- Automated failover mechanism
+- Real-time monitoring and alerting
+- Secure HTTPS-based deployment
+- Scalable WordPress infrastructure
+- Multi-region fault tolerance
+
+---
+
+## 👨‍💻 Key Learning
+- AWS Multi-region architecture design
+- Disaster Recovery (DR) strategy implementation
+- Route 53 failover routing
+- CloudWatch monitoring and SNS alerting
+- EC2 automation using shell scripting
