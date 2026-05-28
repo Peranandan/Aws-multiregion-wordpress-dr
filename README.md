@@ -83,7 +83,7 @@ CloudWatch is configured to monitor the health and performance of the Production
 - EC2 CPU Utilization
 - RDS CPU Utilization
 - Application Load Balancer UnHealthyHostCount
-- Application Load Balancer TargetResponseTime
+  
 
 ### 🚨 Alerting:
 - Amazon SNS is integrated for real-time notifications
@@ -92,7 +92,7 @@ CloudWatch is configured to monitor the health and performance of the Production
 ---
 
 ## 🔔 Notification System (SNS)
-- Sends email/SMS alerts when CloudWatch alarms are triggered
+- Sends email alerts when CloudWatch alarms are triggered
 - Notifies when production region becomes unhealthy
 - Helps in immediate response to failures
 
