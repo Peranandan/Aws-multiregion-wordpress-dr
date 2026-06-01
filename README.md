@@ -118,7 +118,7 @@ Amazon SNS is integrated with CloudWatch Alarms to provide real-time email notif
 
 [Prod-Alb.png](/Screenshots/Prod-Alb.png)
 
-[DR-Alb.png](/Screenshots/DR-Alb(3).png)
+[DR-Alb(3).png](/Screenshots/DR-Alb(3).png)
 
 [PROD-DB.png](/Screenshots/PROD-DB.png)
 
